@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+    var myMap,
+		myPlacemarkSovok,
+		myPlacemarkVolodarka,
+		myPlacemarkBezhka,
+		myPlacemarkFokinka;
+
+    function init()
+	{     
+        myMap = new ymaps.Map("map", {
+            center: [53.255940643383234,34.327913734008554],
+            zoom: 11
+        });
+		
+		myPlacemarkSovok = new ymaps.Placemark([53.23537389310698,34.35459335913416], { 
+			preset: 'islands#blueLeisureCircleIcon',
+            hintContent: 'Советский район', 
+            balloonContent: 'Площадь Партизан' 
+        });
+		
+		myPlacemarkVolodarka = new ymaps.Placemark([53.25736722697149,34.44805965803486], {
+			preset: 'islands#blueLeisureCircleIcon',
+            hintContent: 'Володарский район', 
+            balloonContent: 'Парк Поколений' 
+        });
+		
+		myPlacemarkBezhka = new ymaps.Placemark([53.30116100681027,34.31206972386085], {
+			preset: 'islands#blueLeisureCircleIcon',
+            hintContent: 'Бежицкий район', 
+            balloonContent: 'Пролетарский сквер' 
+        });
+		
+		myPlacemarkFokinka = new ymaps.Placemark([53.2136361801362,34.420128291300024], {
+			
+            hintContent: 'Фокинский район', 
+            balloonContent: 'Сквер Игната Фокина',
+			preset: 'islands#blackIcon'
+        });
+		
+	myMap.geoObjects.add(myPlacemarkSovok);
+	myMap.geoObjects.add(myPlacemarkVolodarka);
+	myMap.geoObjects.add(myPlacemarkBezhka);
+	myMap.geoObjects.add(myPlacemarkFokinka);    
+		
+		var myPolygonFokinka = new ymaps.Polygon([
+    [[53.21323973417797,34.3578965901593],[53.22972388975149,34.37712266437804],[53.21818565023502,34.4904191731671],[53.191800800264915,34.51033189289368],[53.186439382943405,34.41420152179991]]
+],{},{
+strokeColor: "aaff0077", strokeWidth: 5, fillColor:"aaff0077"
+});
+
+		var myPolygonFokinka2 = new ymaps.Polygon([
+[[53.22466288050057,34.6380479573468],[53.21023788014212,34.627748274729605],[53.19539564424651,34.6545274495343],[53.19951900563115,34.68542649738586],[53.211886698659306,34.692979597971785]]
+],{},{
+strokeColor: "aaff0077", strokeWidth: 5, fillColor:"aaff0077"
+});
+
+		var myPolygonSovok = new ymaps.Polygon([
+[[53.21323973417797,34.3578965901593],[53.21323973417797,34.3578965901593],[53.199707336383106,34.27687242023743],[53.22608729625559,34.23979356281554],[53.27097810297839,34.277559065745244],[53.268096629045644,34.34897019855773],[53.24709714291741,34.39360215656554]]
+],{},{
+strokeColor: "aa555577", strokeWidth: 5, fillColor:"aa555577"
+});
+
+		var myPolygonVolodarka = new ymaps.Polygon([
+[[53.22972388975149,34.37712266437804],[53.21818565023502,34.4904191731671],[53.25594888741817,34.547199807559736],[53.2909350003806,34.509777627383954],[53.28435157718021,34.43355997601676],[53.268096629045644,34.34897019855773],[53.24709714291741,34.39360215656554]]
+],{},{
+strokeColor: "0055ff77", strokeWidth: 5, fillColor:"0055ff77"
+});
+		var myPolygonBezhka = new ymaps.Polygon([
+[[53.28435157718021,34.43355997601676],[53.366981825571266,34.30069407025504],[53.281471009008676,34.21829660931753],[53.27097810297839,34.277559065745244],[53.268096629045644,34.34897019855773],[53.268096629045644,34.34897019855773]]
+],{},{
+strokeColor: "11223377", strokeWidth: 5, fillColor:"11223377"
+});
+
+		myMap.geoObjects.add(myPolygonFokinka);
+		myMap.geoObjects.add(myPolygonFokinka2);
+		myMap.geoObjects.add(myPolygonSovok);
+		myMap.geoObjects.add(myPolygonVolodarka);
+		myMap.geoObjects.add(myPolygonBezhka);
+		
+    }
+        
+    </script>
+</head>
+<body>
+    <div id="map" style="width: 100%; height:100%"></div>
+</body>
+</html>
